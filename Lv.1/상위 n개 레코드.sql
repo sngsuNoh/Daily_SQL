@@ -1,0 +1,12 @@
+-- 문제 제목: 상위 n개 레코드
+-- 문제 난이도: Lv.1
+-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59405
+-- ---
+
+SELECT
+    NAME
+FROM
+    ANIMAL_INS
+ORDER BY
+    DATETIME
+LIMIT 1;
