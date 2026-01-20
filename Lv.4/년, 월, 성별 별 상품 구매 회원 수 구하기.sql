@@ -1,0 +1,22 @@
+-- 문제 제목: 년, 월, 성별 별 상품 구매 회원 수 구하기
+-- 문제 난이도: Lv.4
+-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131532
+-- ---
+
+SELECT
+    YEAR(OS.SALES_DATE) AS YEAR,
+    MONTH(OS.SALES_DATE) AS MONTH,
+    UI.GENDER,
+    COUNT(DISTINCT UI.USER_ID) AS USERS
+FROM
+    USER_INFO UI
+    JOIN ONLINE_SALE OS
+    ON UI.USER_ID = OS.USER_ID
+WHERE
+    UI.GENDER IS NOT NULL
+GROUP BY
+    YEAR(OS.SALES_DATE), MONTH(OS.SALES_DATE), UI.GENDER
+ORDER BY
+    YEAR(OS.SALES_DATE) ASC, 
+    MONTH(OS.SALES_DATE) ASC, 
+    UI.GENDER ASC;
